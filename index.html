@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>성과급 현금 운용 계획</title>
+  <style>
+    :root{
+      --bg:#f6f7f9; --card:#ffffff; --text:#171717; --muted:#666b73;
+      --line:#e8eaee; --accent:#2563eb; --accent2:#0f766e; --warn:#b45309;
+      --shadow:0 6px 18px rgba(0,0,0,.06); --radius:18px;
+    }
+    @media (prefers-color-scheme: dark){
+      :root{--bg:#0f1115; --card:#171a21; --text:#f4f4f5; --muted:#a1a1aa; --line:#2a2f3a; --shadow:none;}
+    }
+    *{box-sizing:border-box}
+    body{margin:0; font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans KR",Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.55;}
+    .wrap{max-width:760px; margin:0 auto; padding:18px 14px 40px;}
+    header{padding:18px 4px 10px;}
+    h1{font-size:26px; line-height:1.2; margin:0 0 8px; letter-spacing:-.04em;}
+    .sub{color:var(--muted); font-size:14px; margin:0;}
+    .card{background:var(--card); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); padding:18px; margin:14px 0;}
+    h2{font-size:19px; margin:0 0 12px; letter-spacing:-.03em;}
+    h3{font-size:16px; margin:16px 0 8px;}
+    .grid{display:grid; grid-template-columns:1fr; gap:10px;}
+    .metric{border:1px solid var(--line); border-radius:14px; padding:14px; background:rgba(127,127,127,.035);}
+    .label{color:var(--muted); font-size:13px;}
+    .value{font-size:22px; font-weight:800; letter-spacing:-.03em; margin-top:2px;}
+    .tag{display:inline-block; font-size:12px; padding:4px 8px; border-radius:999px; background:rgba(37,99,235,.12); color:var(--accent); font-weight:700; margin:2px 4px 2px 0;}
+    .tag.green{background:rgba(15,118,110,.12); color:var(--accent2)}
+    .tag.warn{background:rgba(180,83,9,.12); color:var(--warn)}
+    .table{width:100%; border-collapse:separate; border-spacing:0 8px;}
+    .table th{font-size:12px; color:var(--muted); text-align:left; font-weight:700; padding:0 8px 2px;}
+    .table td{background:rgba(127,127,127,.045); padding:12px 8px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); font-size:14px; vertical-align:top;}
+    .table td:first-child{border-left:1px solid var(--line); border-radius:12px 0 0 12px; font-weight:800;}
+    .table td:last-child{border-right:1px solid var(--line); border-radius:0 12px 12px 0; text-align:right; white-space:nowrap; font-weight:800;}
+    .steps{counter-reset:step; padding:0; margin:0; list-style:none;}
+    .steps li{counter-increment:step; position:relative; padding:12px 12px 12px 46px; border:1px solid var(--line); border-radius:14px; margin:9px 0; background:rgba(127,127,127,.035);}
+    .steps li::before{content:counter(step); position:absolute; left:13px; top:12px; width:22px; height:22px; border-radius:50%; background:var(--accent); color:white; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800;}
+    .note{font-size:13px; color:var(--muted); margin:10px 0 0;}
+    .highlight{border-left:4px solid var(--accent); padding:12px 14px; background:rgba(37,99,235,.08); border-radius:12px; margin-top:10px;}
+    .month{display:flex; justify-content:space-between; gap:10px; padding:10px 0; border-bottom:1px solid var(--line); font-size:14px;}
+    .month:last-child{border-bottom:0}
+    .month b{font-weight:800}
+    .small{font-size:12px; color:var(--muted)}
+    @media (min-width:640px){.grid{grid-template-columns:repeat(3,1fr)}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>성과급 현금 운용 계획</h1>
+      <p class="sub">모바일용 요약 보고서 · 수정안 반영</p>
+    </header>
+
+    <section class="card">
+      <h2>1. 전체 현금 배분</h2>
+      <div class="grid">
+        <div class="metric"><div class="label">총 현금 기준</div><div class="value">9,500만원</div></div>
+        <div class="metric"><div class="label">개인 사용</div><div class="value">2,000만원</div></div>
+        <div class="metric"><div class="label">투자금</div><div class="value">7,500만원</div></div>
+      </div>
+      <p class="note">OPI1 현금, OPI2 1/3 즉시매도, 작년 성과급 매도대금을 합쳐 약 9,500만원으로 가정.</p>
+    </section>
+
+    <section class="card">
+      <h2>2. 투자 포트폴리오</h2>
+      <table class="table" aria-label="투자 포트폴리오">
+        <thead><tr><th>자산</th><th>역할</th><th>금액</th></tr></thead>
+        <tbody>
+          <tr><td>QQQI</td><td>건보료 버퍼<br><span class="small">배당 우선 사용, 부족분 매도</span></td><td>1,500만원</td></tr>
+          <tr><td>JEPQ</td><td>월배당 장기 보유<br><span class="small">매도하지 않음</span></td><td>2,500만원</td></tr>
+          <tr><td>QLD</td><td>성장 자산<br><span class="small">즉시 투자</span></td><td>2,000만원</td></tr>
+          <tr><td>QQQI</td><td>QLD 추가매수 대기<br><span class="small">하락 신호 발생 시 전환</span></td><td>1,500만원</td></tr>
+        </tbody>
+      </table>
+      <div class="highlight"><b>합계 투자금: 7,500만원</b><br>성장 2,000만원 + 배당/현금흐름 4,000만원 + 전환 대기 1,500만원</div>
+    </section>
+
+    <section class="card">
+      <h2>3. QLD 분할 매수 규칙</h2>
+      <span class="tag">즉시 2,000만원</span>
+      <span class="tag green">대기 1,500만원</span>
+      <span class="tag warn">500만원 × 최대 3회</span>
+      <ol class="steps">
+        <li>성과급 수령 후 QLD를 <b>2,000만원 즉시 매수</b>.</li>
+        <li>대기자금 <b>1,500만원은 QQQI</b>로 보유하며 월배당을 받음.</li>
+        <li>매주 QLD 가격을 계산해 <b>전주 평균가 대비 10% 이상 하락</b>하면 QQQI 일부를 매도.</li>
+        <li>하락 신호 1회당 <b>QLD 500만원 매수</b>. 최대 3회까지 실행.</li>
+      </ol>
+      <p class="note">대기자금 목적은 수익 극대화보다 “조정 시 QLD 추가 매수 기회 확보”입니다.</p>
+    </section>
+
+    <section class="card">
+      <h2>4. 건보료 충당 계획</h2>
+      <div class="grid">
+        <div class="metric"><div class="label">기존 납부분</div><div class="value">약 40만원/월</div></div>
+        <div class="metric"><div class="label">투자자산 충당 목표</div><div class="value">80만원/월</div></div>
+        <div class="metric"><div class="label">충당 기간</div><div class="value">6월~다음해 5월</div></div>
+      </div>
+      <ol class="steps">
+        <li>JEPQ와 QQQI 배당을 세후 기준으로 수령.</li>
+        <li>월 80만원 건보료 충당에 배당을 먼저 사용.</li>
+        <li>부족분은 <b>건보료 버퍼 QQQI 1,500만원</b>에서만 매도.</li>
+        <li>JEPQ는 매도하지 않고 계속 보유.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>5. 월별 현금흐름 기준</h2>
+      <div class="month"><span>2월~5월</span><b>배당 수령, 매도 없음</b></div>
+      <div class="month"><span>6월~다음해 5월</span><b>월 80만원 충당</b></div>
+      <div class="month"><span>충당 순서</span><b>배당 → 부족분 QQQI 매도</b></div>
+      <div class="month"><span>JEPQ 원칙</span><b>매도하지 않음</b></div>
+
+      <h3>예상 세후 월배당</h3>
+      <table class="table" aria-label="예상 세후 월배당">
+        <thead><tr><th>자산</th><th>기준</th><th>예상액</th></tr></thead>
+        <tbody>
+          <tr><td>JEPQ</td><td>2,500만원 보유<br><span class="small">현재 세후 배당률·현재 환율 기준</span></td><td>약 20만원/월</td></tr>
+          <tr><td>QQQI</td><td>건보료 버퍼 1,500만원<br><span class="small">현재 세후 배당률·현재 환율 기준</span></td><td>약 15만원/월</td></tr>
+          <tr><td>합계</td><td>건보료 충당용 배당</td><td>약 35만원/월</td></tr>
+        </tbody>
+      </table>
+
+      <div class="highlight"><b>월 80만원 충당 구조</b><br>배당 약 35만원을 먼저 사용하고, 부족분 약 45만원만 건보료 버퍼 QQQI에서 매도.</div>
+      <p class="note">월별 배당금은 실제 배당락·환율·세후 금액에 따라 변동. 현재 환율 기준으로 계산해 매월 점검.</p>
+    </section>
+
+    <section class="card">
+      <h2>6. 전략 요약</h2>
+      <p><b>QLD</b>는 성장, <b>JEPQ</b>는 안정적 월배당, <b>QQQI</b>는 건보료 충당과 QLD 추가매수 대기 역할을 담당합니다.</p>
+      <div class="highlight">핵심 원칙: <b>건보료는 배당으로 먼저 해결하고, QLD 추가매수는 전주 평균 대비 -10% 하락 신호가 나올 때만 500만원씩 실행.</b></div>
+    </section>
+  </main>
+</body>
+</html>
